@@ -14,10 +14,13 @@ export default class AppliedJobs extends Component {
         getAppliedJobs(getUserData().token)
         .then( response => {
             console.log(response);
-            this.setState({
-                appliedJobs: response.data
-            })
-        })
+            if(response.data)
+            {
+                this.setState({
+                    appliedJobs: response.data
+                });
+            }
+        });
     }
     render() {
         return (

@@ -13,9 +13,12 @@ export default class Applicants extends Component {
     componentDidMount() {
         getApplicants(getUserData().token , this.props.match.params.id)
         .then( response => {
-            this.setState({
-                applicants: response.data
-            });
+            if(response.data)
+            {
+                this.setState({
+                    applicants: response.data
+                });
+            }
         });
     }
     render() {
